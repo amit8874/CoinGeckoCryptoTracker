@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { fetchCoinData } from "../../services/fetchCoinData";
 import { useQuery } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 function CoinTable({ currency }) {
+  const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["coins", page, currency],
@@ -12,6 +14,10 @@ function CoinTable({ currency }) {
     cacheTime: 1000 * 60 * 2,
     staleTime: 1000 * 60 * 2,
   });
+
+  function handleCoinRedirect(id){
+    navigate(`/details/${id}`);
+  }
 
   if (isError) return <div>Error: {error.message}</div>;
 
@@ -31,8 +37,9 @@ function CoinTable({ currency }) {
         {data &&
           data.map((coin) => (
             <div
+            onClick={()=> handleCoinRedirect(coin.id)}
               key={coin.id}
-              className="w-full bg-gray-900 text-white flex py-4 px-2 border-b border-gray-700 items-center"
+              className="w-full bg-gray-900 text-white flex py-4 px-2 border-b border-gray-700 items-center cursor-pointer"
             >
               {/* Coin Info */}
               <div className="flex items-center gap-4 basis-[35%]">
