@@ -2,15 +2,19 @@ import { useState } from "react";
 import { fetchCoinData } from "../../services/fetchCoinData";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate } from "react-router-dom";
+import currencyStore from '../../state/store'
 
-function CoinTable({ currency }) {
+function CoinTable() {
+  const {currency} = currencyStore();
   const navigate = useNavigate();
+
   const [page, setPage] = useState(1);
+
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["coins", page, currency],
     queryFn: () => fetchCoinData(page, currency),
-    retry: 2,
-    retryDelay: 1000,
+    // retry: 2,
+    // retryDelay: 1000,
     cacheTime: 1000 * 60 * 2,
     staleTime: 1000 * 60 * 2,
   });
