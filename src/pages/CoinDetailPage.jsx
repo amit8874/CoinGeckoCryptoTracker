@@ -1,9 +1,15 @@
-function CoinDetailsPage(){
-    return (
-        <div>
-            <h1>Coin Details Page</h1>
-        </div>
-    )
+import { useParams } from 'react-router-dom';
 
+function CoinDetailPage() {
+  const { coinId } = useParams();
+
+  return (
+    <div style={{ padding: '2rem' }}>
+        
+      <h1>Coin Detail Page {coinId}</h1>
+      {/* <p>Coin ID: {id}</p> */}
+    </div>
+  );
 }
-export default CoinDetailsPage;
+
+export default CoinDetailPage;

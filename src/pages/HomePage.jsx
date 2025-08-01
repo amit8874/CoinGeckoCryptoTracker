@@ -1,14 +1,13 @@
-// CoinDetailPage.jsx
-import { useParams } from 'react-router-dom';
+// pages/HomePage.jsx
+import CoinTable from '../Components/CoinTable/CoinTable'; // ✅ correct path
 
-function CoinDetailPage() {
-  const { coinId } = useParams();
-
+function HomePage() {
   return (
     <div style={{ padding: '2rem' }}>
-      <h1>Coin Detail Page {coinId}</h1>
+      <h1>Crypto Market</h1>
+      <CoinTable />
     </div>
   );
 }
 
-export default CoinDetailPage;
+export default HomePage;
