@@ -53,7 +53,7 @@ function CoinTable() {
                 <img
                   src={coin.image}
                   alt={coin.name}
-                  className="w-12 h-12 rounded-full"
+                  className="w-12 h-12 rounded-full" loading="lazy"
                 />
                 <div>
                   <div className="text-xl font-bold">{coin.name}</div>

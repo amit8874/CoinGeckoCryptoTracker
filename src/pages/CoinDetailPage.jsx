@@ -29,7 +29,7 @@ function CoinDetailPage() {
 
 
   return (
-    <div className='flex flex-col md:flex-row w-full'>
+    <div className='flex flex-col md:flex-row w-full '>
 
       <div 
       className='md:w-1/3 w-full flex flex-col items-center mt-6 md:mt-0 border-r-2 border-gray-500 px-4'>
