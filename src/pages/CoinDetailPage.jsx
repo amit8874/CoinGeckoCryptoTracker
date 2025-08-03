@@ -4,6 +4,7 @@ import { fetchCoinDetails } from '../services/fetchCoinDetails';
 import { cache, useEffect } from 'react';
 import currencyStore from '../state/store'
 import parse from 'html-react-parser';
+import {Facebook} from 'react-content-loader'
 
 
 function CoinDetailPage() {
@@ -20,7 +21,7 @@ function CoinDetailPage() {
 
 
  if(isLoading){
-  return <div>isLoading...</div>
+  return <div>{<Facebook/>}</div>
  }
  if (isError || !coin){
   return <div>Erro: Something went wrong</div>
